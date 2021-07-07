@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RlContact"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="3dp">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NewContactActivity">
 
-    <ImageView
-        android:id="@+id/imgContact"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_margin="8dp"
-        android:padding="3dp"
-        android:src="@mipmap/ic_launcher" />
-
-    <TextView
-        android:id="@+id/idTVContactName"
+    <EditText
+        android:id="@+id/idEdtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
-        android:layout_toRightOf="@id/imgContact"
-        android:text="Contact Name"
-        android:textColor="@color/black" />
+        android:layout_margin="8dp"
+        android:hint="Enter Name"
+        android:inputType="text" />
 
-</RelativeLayout>
+    <EditText
+        android:id="@+id/idEdtPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="Enter Number"
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/idBtnAddContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Save Contact"
+        android:textAllCaps="false" />
+
+</LinearLayout>
