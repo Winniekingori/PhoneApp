@@ -28,7 +28,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private var contactModelArrayList: ArrayList<ContactModel>? = null
     private var contactRV: RecyclerView? = null
-    lateinit var contactAdapter: ContactModel
+    private lateinit var contactAdapter: ContactModel
     private var loadingPB: ProgressBar? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,13 +68,14 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    private fun filter(text: String) {
+    private fun filter(text: Unit) {
         val filteredlist: ArrayList<ContactModel> = ArrayList<ContactModel>()
         for (item in contactModelArrayList!!) {
             if (item.getUserName().toLowerCase().contains(text.toLowerCase())) {
                 filteredlist.add(item)
             }
-        }if (filteredlist.isEmpty()) {
+        }
+        if (filteredlist.isEmpty()) {
             Toast.makeText(this, "No Contact Found", Toast.LENGTH_SHORT).show()
         } else { contactAdapter!!.filterList(filteredlist)
         }
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun prepareContactRV() {
         contactRV!!.layoutManager = LinearLayoutManager(this)
-        contactRV!!.adapter = contactAdapter
+        this.contactAdapter.also { contactRV!!.adapter = null }
     }
     private fun requestPermissions() {
         Dexter.withActivity(this)
@@ -182,4 +183,21 @@ class MainActivity : AppCompatActivity() {
         loadingPB!!.visibility = View.GONE
             contactAdapter!!.notifyDataSetChanged()
         }
+}
+
+private fun Any.contains(toLowerCase: Any): Boolean {
+    TODO("Not yet implemented")
+}
+
+private fun Any.toLowerCase() {
+
+
+}
+
+private fun ContactModel.notifyDataSetChanged() {
+    TODO("Not yet implemented")
+}
+
+private fun ContactModel.getUserName(): Any {
+    TODO("Not yet implemented")
 }
